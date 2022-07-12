@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-on .shift .stop .13</div>
+  </title>
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 1. v-on -->
+    <button v-on:click="showSome">click me</button>
+    <button v-on:click="showSomething(123, $event)">click me again!</button>
+    <input type="text" v-on:keyup="keyup"></input>
+    <input type="text" v-on:keyup.enter="keyup1"></input>
+    <button v-on:click.shift="showSomeShift">click with shift</button>
+    <button v-on:click.meta="showMeta">click with meta-command</button>
+  </div>
+  <script>
+    new Vue({
+      el: "#app",
+      methods: {
+        showSome: function () {
+          alert("somthing");
+        },
+        showSomething: function (msg, event) {
+          console.log(event);
+          alert(msg);
+        },
+        keyup: function (event) {
+          if (event.which == 13) {
+            alert("you pressed enter key");
+          }
+        },
+        // the same functionality as above - with .enter
+        keyup1: function () {
+          alert("you pressed enter key");
+        },
+        showSomeShift: function () {
+          alert("you pressed shift key");
+        },
+        showMeta: function () {
+          alert("you pressed meta");
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

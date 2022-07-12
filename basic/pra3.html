@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pra / v-on</title>
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <input id="input1" type="text" v-on:keyup="changeName">
+    Output : {{ name1 }}
+
+    <!-- simple js clause is ok in "" below, but if / for not -->
+    <input id="input2" type="text" v-on:keyup.space.enter="name2=$event.target.value">
+    Output : {{ name2 }}
+
+    <!-- use the "submit" in from tag, instead of "click" in input -->
+    <form action="" v-on:submit.prevent>
+      <input type="text">
+      <input type="submit">
+    </form>
+  </div>
+
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        name1: "h1",
+        name2: "h2"
+      },
+      methods: {
+        changeName: function (event) {
+          this.name1 = event.target.value;
+        },
+        doSth: function () {
+          alert("processing the form")
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
