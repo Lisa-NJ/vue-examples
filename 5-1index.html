@@ -14,13 +14,35 @@
     <ul>
       <li v-for="title in movies">{{title}}</li>
       <li v-for="(t, i) in movies">{{t}}({{i}})</li>
+      <table>
+        <thead>
+          <td>name</td>
+          <td>title</td>
+        </thead>
+        <tbody>
+          <tr v-for="person in persons">
+            <td>{{person.name}}</td>
+            <td>{{person.title}}</td>
+          </tr>
+        </tbody>
+      </table>
     </ul>
   </div>
   <script>
     new Vue({
       el: "#app",
       data: {
-        movies: ["movie1", "movie2", "movie3"]
+        movies: ["movie1", "movie2", "movie3"],
+        persons: [{
+          name: "Lisa",
+          title: "react"
+        }, {
+          name: "Fiona",
+          title: "java"
+        }, {
+          name: "Linda",
+          title: "manager"
+        }]
       }
     })
   </script>
