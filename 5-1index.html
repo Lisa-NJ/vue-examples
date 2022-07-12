@@ -14,19 +14,24 @@
     <ul>
       <li v-for="title in movies">{{title}}</li>
       <li v-for="(t, i) in movies">{{t}}({{i}})</li>
-      <table>
-        <thead>
-          <td>name</td>
-          <td>title</td>
-        </thead>
-        <tbody>
-          <tr v-for="person in persons">
-            <td>{{person.name}}</td>
-            <td>{{person.title}}</td>
-          </tr>
-        </tbody>
-      </table>
     </ul>
+    <table>
+      <thead>
+        <td>name</td>
+        <td>title</td>
+      </thead>
+      <tbody>
+        <tr v-for="person in persons">
+          <td>{{person.name}}</td>
+          <td>{{person.title}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div v-for="(name, prop, index) in person">
+      {{prop}} : {{name}} - {{index}}
+    </div>
+    <div v-for="n in 10">{{n}}</div>
+    <div v-for="s in 'abcde'">{{s}}</div>
   </div>
   <script>
     new Vue({
@@ -42,7 +47,12 @@
         }, {
           name: "Linda",
           title: "manager"
-        }]
+        }],
+        person: {
+          name: "Magi",
+          age: 28,
+          hair: "black"
+        }
       }
     })
   </script>
