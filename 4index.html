@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-model</title>
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{value}}
+    {{value1}}
+    {{html}}
+    <input type="text" v-bind:value="value" v-on:input="inputChange">
+    <!-- v-model = v-bind + v-on, value will be ignored-->
+    <input type="text" v-model="value1">
+    <div v-html="html"></div>
+    <!-- render only once -->
+    <div v-once>
+      {{msg}}
+    </div>
+    {{msg}}
+    <button v-on:click="msg='123'">click me</button>
+    <p v-if="items>10">{{items}} products left in stock</p>
+    <p v-else-if="items>0">the last {{items}} products, hurry</p>
+    <p v-else>sold out, please wait</p>
+    <template v-if="items > 50">
+      <p>caution</p>
+      <p>enjoy a 20% discount</p>
+    </template>
+    <p v-show="Ninja">I can hide</p>
+    <p v-show="!Ninja">I am here</p>
+    <button v-on:click="Ninja=!Ninja">Ninja skill</button>
+  </div>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        value: "morning",
+        value1: "afternoon",
+        html: "<h1>title</h1>",
+        msg: "Lisa",
+        items: 60,
+        Ninja: true
+      },
+      methods: {
+        inputChange: function (event) {
+          this.value = event.target.value
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
