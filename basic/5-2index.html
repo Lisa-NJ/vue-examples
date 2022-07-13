@@ -12,7 +12,8 @@
 <body>
   <div id="app">
     <div v-for="n in numbers">{{n}}</div>
-    <button v-on:click="changeNumber">click me</button>
+    <button v-on:click="changeNumber">click me change</button>
+    <button v-on:click="reverseNumber">click me reverse</button>
   </div>
   <script>
     new Vue({
@@ -22,9 +23,12 @@
       },
       methods: {
         changeNumber: function () {
-          // this.numbers[1] = 10
+          // this.numbers[1] = 10 will not render dom, it needs to be like the below
           Vue.set(this.numbers, 1, 10)
           alert(this.numbers[1])
+        },
+        reverseNumber: function () {
+          this.numbers.reverse();
         }
       }
     })
