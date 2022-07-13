@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>practice 5 v-for v-if v-model</title>
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{password}}
+    <input type="password" v-model:value="password">
+    <p v-if="number>8">你有超过8个字符</p>
+    <p v-else>你没几个字符</p>
+  </div>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        password: "",
+        number: 5
+      },
+    })
+  </script>
+</body>
+
+</html>
