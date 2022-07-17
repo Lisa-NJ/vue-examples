@@ -21,8 +21,14 @@
         template: // custom component has one root node
           `<div>
           <h1>Contact Info</h1>
-          <p>12345345</p>
-        </div>`
+          <p>{{msg}}</p>
+        </div>`,
+        // data must be a function in vue component
+        data: function () {
+          return {
+            msg: "1234566"
+          }
+        }
       }
     )
     new Vue({
