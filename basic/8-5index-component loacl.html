@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>local component</title>
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app1">
+    <my-component></my-component>
+  </div>
+  <div id="app2">
+    <!-- my-component wii not be rendered successfully in app2 -->
+    <my-component></my-component>
+  </div>
+  <script>
+    var component = {
+      template:
+        `<div>
+          <button @click="clickMe">{{count}}</button>
+        </div>`,
+      data: function () {
+        return {
+          count: 0
+        }
+      },
+      methods: {
+        clickMe: function () {
+          this.count++
+        }
+      }
+    }
+    // define a local component
+    new Vue({
+      el: "#app1",
+      components: {
+        "my-component": component
+      }
+    })
+  </script>
+</body>
+
+</html>
