@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>user defined component</title>
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <my-component></my-component>
+    <my-component></my-component>
+    <my-component></my-component>
+  </div>
+  <script>
+    Vue.component("my-component",
+      {
+        template: // custom component has one root node
+          `<div>
+          <h1>Contact Info</h1>
+          <p>12345345</p>
+        </div>`
+      }
+    )
+    new Vue({
+      el: "#app"
+    })
+  </script>
+</body>
+
+</html>
