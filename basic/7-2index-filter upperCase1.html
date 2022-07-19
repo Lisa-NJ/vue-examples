@@ -5,22 +5,28 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Empty</title>
+  <title>filters - upperCase 1st letter</title>
   <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
 </head>
 
 <body>
-  <div title="a">what</div>
-  <p title="this is a p node">what-p</p>
   <div id="app">
-    <div v-bind:title="msg">what?</div>
+    {{msg | upperCase(true)}}
   </div>
   <script>
     new Vue({
       el: "#app",
-      data: {
-        msg: "rrr"
+      data: { 
+        msg: "just an example"
+      },
+      filters: {
+        upperCase: function(val, isFirstFlg) {
+          strVal = val.toString()
+          return isFirstFlg ? strVal.charAt(0).toUpperCase() + strVal.slice(1)
+          : strVal.toUpperCase()
+        }
       }
+      
     })
   </script>
 </body>
