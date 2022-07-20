@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styles class</title>
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+  <style>
+    .shape {
+      width: 100px;
+      height: 100px;
+      float: left;
+      margin: 10px;
+    }
+
+    .circle {
+      width: 50px;
+      background-color: red;
+      border-radius: 50%;
+    }
+
+    .square {
+      background-color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Vue / Classes and Style Bindings -->
+    <div v-for="shp in shapes" class="shape" v-bind:class="{circle : shp.isRound, square: !shp.isRound}"></div>
+  </div>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        shapes: [
+          { isRound: true },
+          { isRound: false }
+        ]
+      }
+    })
+  </script>
+</body>
+
+</html>

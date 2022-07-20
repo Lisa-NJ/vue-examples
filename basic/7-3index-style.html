@@ -5,19 +5,19 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>style</title>
+  <title>Style</title>
   <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
 </head>
 
 <body>
   <div id="app">
-    
+    <div style="width:100px;height:100px" v-bind:style="{backgroundColor: color}"></div>
   </div>
   <script>
     new Vue({
       el: "#app",
       data: {
-       
+        color: "yellow"
       }
     })
   </script>
