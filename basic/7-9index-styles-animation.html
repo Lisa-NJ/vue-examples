@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>combination of 2 ways</title>
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+  <style>
+    .shape {
+      width: 100px;
+      height: 100px;
+      float: left;
+      margin: 10px;
+    }
+
+    .circle {
+      width: 50px;
+      background-color: red;
+      border-radius: 50%;
+    }
+
+    .square {
+      background-color: blue;
+    }
+
+    .triangle {
+      width : 0;
+      height : 0;
+    }
+
+    .up {
+      border-right: 100px solid transparent;
+      border-left: 100px solid transparent;
+      border-bottom: 100px solid green;
+
+    }
+
+    .down {
+      border-right: 100px solid transparent;
+      border-left: 100px solid transparent;
+      border-top: 150px solid red;
+    }
+
+    /* how to show animation */
+    .animation {
+      animation : stretch 1.0s ease-out;
+    }
+
+    @keyframes stretch {
+      0% {
+        transform: scale(0.3);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Vue / Classes and Style Bindings(2-change value) -->
+    <!-- v-bind: == :  -->
+    <!-- v-on: == @ -->
+    <div v-for="shp in shapes" class="shape" 
+    :class="[shp.shape, shp.direction?shp.direction:'', {animation : shp.animationFlg}]"></div>
+  </div>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        shapes: [
+          { shape: "circle" , animationFlg : true},
+          { shape: "square" },
+          { shape: "triangle", direction: "up", animationFlg : true },
+          { shape: "triangle", direction: "down" }
+        ]
+      }
+    })
+  </script>
+</body>
+
+</html>
