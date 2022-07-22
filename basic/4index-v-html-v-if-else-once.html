@@ -13,7 +13,9 @@
     }
   </style>
 </head>
-
+<!-- an element with v-show will always be rendered and remain in the DOM;
+ v-show only toggles the display CSS property of the element. 
+ v-if has higher toggle costs while v-show has higher initial render costs. -->
 <body>
   <div id="app">
     {{value}}
@@ -36,6 +38,7 @@
       <p>caution</p>
       <p>enjoy a 20% discount</p>
     </template>
+    
     <p v-show="Ninja">I can hide</p>
     <p v-show="!Ninja">I am here</p>
     <button v-on:click="Ninja=!Ninja">Ninja skill</button>
