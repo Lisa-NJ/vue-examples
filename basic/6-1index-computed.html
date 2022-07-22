@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>computed get set</title>
+  <title>computed</title>
   <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
 </head>
 
@@ -14,7 +14,7 @@
     <div>{{num}}</div>
     <!-- a method is called every time something changes, like num++ -->
     <div>{{getFullName()}}</div>
-    <!-- a computed is called only when a variable it depends on changes, like firstName -->
+    <!-- a computed-method is called only when a variable it depends on changes, like firstName -->
     <div>{{fullName}}</div>
     <!-- a computed is cached once it was called before -->
     <div>{{fullName}}</div>
@@ -30,15 +30,8 @@
         lastName: "xiao"
       },
       computed: {
-        fullName: {
-          get() {
-            return this.lastName + " " + this.firstName
-          },
-          set(newValue) {
-            strArr = newValue.split(" ")
-            this.lastName = strArr[0]
-            this.firstName = strArr[1]
-          }
+        fullName: function () {
+          return this.lastName + " " + this.firstName
         }
       },
       methods: {
@@ -47,7 +40,7 @@
           return this.lastName + " " + this.firstName
         },
         changeName: function () {
-          this.fullName = "xiao hong"
+          this.firstName += "Add"
         }
       }
     })

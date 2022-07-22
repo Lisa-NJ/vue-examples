@@ -24,14 +24,19 @@
     new Vue({
       el: "#app",
       methods: {
-        showSome: function () {
+        // :function can be omitted
+        // showSome: function () {
+        //   alert("somthing");
+        // },
+        // works the same as above
+        showSome() {
           alert("somthing");
         },
-        showSomething: function (msg, event) {
+        showSomething(msg, event) {
           console.log(event);
           alert(msg);
         },
-        keyup: function (event) {
+        keyup(event) {
           if (event.which == 13) {
             alert("you pressed enter key");
           }

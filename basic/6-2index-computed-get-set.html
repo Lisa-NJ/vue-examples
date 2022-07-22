@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>computed</title>
+  <title>computed get set</title>
   <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
 </head>
 
@@ -30,17 +30,25 @@
         lastName: "xiao"
       },
       computed: {
-        fullName: function () {
-          return this.lastName + " " + this.firstName
+        fullName: {
+          get() {
+            return this.lastName + " " + this.firstName
+          },
+          set(newValue) {
+            strArr = newValue.split(" ")
+            this.lastName = strArr[0]
+            this.firstName = strArr[1]
+          }
         }
       },
+
       methods: {
-        getFullName: function () {
+        getFullName () {
           alert("getFullName is called")
           return this.lastName + " " + this.firstName
         },
-        changeName: function () {
-          this.firstName = "hong"
+        changeName () {
+          this.fullName = "xiao hong"
         }
       }
     })
