@@ -10,4 +10,4 @@
 10. <hr> - a thematic break between paragraph-level elements: for example, a change of scene in a story.
 11. <code> - a short code snippet, <pre> - a longer block of code
 12. <rb> <rp> <rt> - back in HTML5
-13. <colgroup span="2" style="background-color: yellow"> - 
+13. <colgroup span="2" style="background-color: yellow"> - defines a group of columns within a table
