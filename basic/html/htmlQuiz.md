@@ -11,3 +11,6 @@
 11. <code> - a short code snippet, <pre> - a longer block of code
 12. <rb> <rp> <rt> - back in HTML5
 13. <colgroup span="2" style="background-color: yellow"> - defines a group of columns within a table
+14. PNG, GIF, JPG -  these image formats can be displayed by all web browsers
+15. <base href="http://www.linkedin.com/dir/" />
+16. <wbr> - an opportunity for a break in a very long word, if needed for proper page display

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,38 +9,56 @@
     <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
     <style>
         .batman {
-        background-color: #d7d9f2;
-    }
+            background-color: #d7d9f2;
+        }
 
-    .flash {
-        background-color: #ffe8d4;
-    }
+        .flash {
+            background-color: #ffe8d4;
+        }
 
-    caption {
-        padding: 8px;
-        caption-side: bottom;
-    }
+        caption {
+            padding: 8px;
+            caption-side: bottom;
+        }
 
-    table {
-        border-collapse: collapse;
-        border: 2px solid rgb(100, 100, 100);
-        letter-spacing: 1px;
-        font-family: sans-serif;
-        font-size: .7rem;
-    }
+        table {
+            border-collapse: collapse;
+            border: 2px solid rgb(100, 100, 100);
+            letter-spacing: 1px;
+            font-family: sans-serif;
+            font-size: .7rem;
+        }
 
-    td,
-    th {
-        border: 1px solid rgb(100, 100, 100);
-        padding: 10px 10px;
-    }
+        td,
+        th {
+            border: 1px solid rgb(100, 100, 100);
+            padding: 10px 10px;
+        }
 
-    td {
-        text-align: center;
-    }
+        td {
+            text-align: center;
+        }
     </style>
 </head>
+
 <body>
+    <p>When Dave asks HAL to open the pod bay door, HAL answers: <q
+            cite="https://www.imdb.com/title/tt0062622/quotes/qt0396921">I'm sorry, Dave. I'm afraid I can't do
+            that.</q></p>
+    <nav>
+        <ul>
+            <li><a href="#">Link 1</a></li>
+            <li>
+                <a href="#">Link 2</a>
+                <ul>
+                    <li><a href="#">Link 2a</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Link 3</a></li>
+        </ul>
+    </nav>
+    <!-- the language and dialect for the paragraph—in this case, British English. -->
+    <p lang="en-GB">Welcome to our wonderful website.</p>
     <!-- A void element is an element whose content model never allows it to have contents -->
     <br>
     <!-- area , base , br , col , command , embed , hr , img , input , keygen , 
@@ -55,47 +74,37 @@
 
     <!-- source in picture, video and audio -->
     <picture>
-        <source srcset="/media/cc0-images/surfer-240-200.jpg"
-                media="(min-width: 800px)">
+        <source srcset="/media/cc0-images/surfer-240-200.jpg" media="(min-width: 800px)">
         <img src="/media/cc0-images/painted-hand-298-332.jpg" alt="" />
     </picture>
-    
+
     <figure>
         <figcaption>Listen to the T-Rex:</figcaption>
-        <audio
-            controls
-            src="/media/cc0-audio/t-rex-roar.mp3">
-                Your browser does not support the
-                <code>audio</code> element.
+        <audio controls src="/media/cc0-audio/t-rex-roar.mp3">
+            Your browser does not support the
+            <code>audio</code> element.
         </audio>
     </figure>
 
     <video controls width="250">
 
-        <source src="/media/cc0-videos/flower.webm"
-                type="video/webm">
-    
-        <source src="/media/cc0-videos/flower.mp4"
-                type="video/mp4">
-    
+        <source src="/media/cc0-videos/flower.webm" type="video/webm">
+
+        <source src="/media/cc0-videos/flower.mp4" type="video/mp4">
+
         Sorry, your browser doesn't support embedded videos.
     </video>
-            
-    <video controls
-        width="250"
-        height="200"
-        muted>
-        <source src="/media/cc0-videos/flower.webm"
-                type="video/webm">
-        <source src="/media/cc0-videos/flower.mp4"
-                type="video/mp4">
+
+    <video controls width="250" height="200" muted>
+        <source src="/media/cc0-videos/flower.webm" type="video/webm">
+        <source src="/media/cc0-videos/flower.mp4" type="video/mp4">
         This browser does not support the HTML5 video element.
     </video>
 
     <details open>
         <summary>Parmesan Deviled Eggs</summary>
         <p>
-        These delectable little bites are made with organic eggs, fresh Parmesan, and chopped pine nuts.
+            These delectable little bites are made with organic eggs, fresh Parmesan, and chopped pine nuts.
         </p>
     </details>
 
@@ -107,8 +116,7 @@
     <!-- semantic markup -->
     <p>
         On <time datetime="1969-07-21">July 21, 1969</time>, Neil Armstrong said,
-        <q cite="https://www.hq.nasa.gov/alsj/a11l/a11.html"
-        >One small step for man, one giant leap for mankind.</q>
+        <q cite="https://www.hq.nasa.gov/alsj/a11l/a11.html">One small step for man, one giant leap for mankind.</q>
     </p>
 
     <a href="https://es.yahoo.com/" hreflang="____" target="_blank">Visita Yahoo</a>
@@ -128,7 +136,9 @@
         <img src="img_orange_flowers.jpg" alt="Flowers" style="width:auto;">
     </picture>
 
-    The <hr> HTML element represents a thematic break between paragraph-level elements: for example, a change of scene in a story, or a shift of topic within a section.
+    The
+    <hr> HTML element represents a thematic break between paragraph-level elements: for example, a change of scene in a
+    story, or a shift of topic within a section.
 
     <p>§1: The first rule of Fight Club is: You do not talk about Fight Club.</p>
     <hr>
@@ -137,14 +147,14 @@
     <table>
         <colgroup span="2" style="background-color: yellow">
         <tr>
-          <th>Col 1</th>
-          <th>Col 2</th>
-          <th>Col 3</th>
+            <th>Col 1</th>
+            <th>Col 2</th>
+            <th>Col 3</th>
         </tr>
         <tr>
-          <td>first</td>
-          <td>second</td>
-          <td>third</td>
+            <td>first</td>
+            <td>second</td>
+            <td>third</td>
         </tr>
     </table>
 
