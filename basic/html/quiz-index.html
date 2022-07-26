@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <style>
+        .batman {
+        background-color: #d7d9f2;
+    }
+
+    .flash {
+        background-color: #ffe8d4;
+    }
+
+    caption {
+        padding: 8px;
+        caption-side: bottom;
+    }
+
+    table {
+        border-collapse: collapse;
+        border: 2px solid rgb(100, 100, 100);
+        letter-spacing: 1px;
+        font-family: sans-serif;
+        font-size: .7rem;
+    }
+
+    td,
+    th {
+        border: 1px solid rgb(100, 100, 100);
+        padding: 10px 10px;
+    }
+
+    td {
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <!-- A void element is an element whose content model never allows it to have contents -->
+    <br>
+    <!-- area , base , br , col , command , embed , hr , img , input , keygen , 
+    link , meta , param , source , track , wbr. -->
+
+    <!-- address itemscope itemtype -->
+    <address itemscope itemtype="http://schema.org/PostalAddress">
+        <span itemprop="streetAddress">6410 Via Real</span><br />
+        <span itemprop="addressLocality">Carpinteria</span>,
+        <span itemprop="addressRegion">CA</span>
+        <span itemprop="addressCode">93013</span>
+    </address>
+
+    <!-- source in picture, video and audio -->
+    <picture>
+        <source srcset="/media/cc0-images/surfer-240-200.jpg"
+                media="(min-width: 800px)">
+        <img src="/media/cc0-images/painted-hand-298-332.jpg" alt="" />
+    </picture>
+    
+    <figure>
+        <figcaption>Listen to the T-Rex:</figcaption>
+        <audio
+            controls
+            src="/media/cc0-audio/t-rex-roar.mp3">
+                Your browser does not support the
+                <code>audio</code> element.
+        </audio>
+    </figure>
+
+    <video controls width="250">
+
+        <source src="/media/cc0-videos/flower.webm"
+                type="video/webm">
+    
+        <source src="/media/cc0-videos/flower.mp4"
+                type="video/mp4">
+    
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+            
+    <video controls
+        width="250"
+        height="200"
+        muted>
+        <source src="/media/cc0-videos/flower.webm"
+                type="video/webm">
+        <source src="/media/cc0-videos/flower.mp4"
+                type="video/mp4">
+        This browser does not support the HTML5 video element.
+    </video>
+
+    <details open>
+        <summary>Parmesan Deviled Eggs</summary>
+        <p>
+        These delectable little bites are made with organic eggs, fresh Parmesan, and chopped pine nuts.
+        </p>
+    </details>
+
+
+    <img src="cubism.jpg" alt="Version of 'Whistler\'s Mother' in cubist style">
+
+    <form method="post" action="mailto:info@linkedin.com" enctype="text/plain"></form>
+
+    <!-- semantic markup -->
+    <p>
+        On <time datetime="1969-07-21">July 21, 1969</time>, Neil Armstrong said,
+        <q cite="https://www.hq.nasa.gov/alsj/a11l/a11.html"
+        >One small step for man, one giant leap for mankind.</q>
+    </p>
+
+    <a href="https://es.yahoo.com/" hreflang="____" target="_blank">Visita Yahoo</a>
+
+    <label for="example">Make a choice:</label>
+    <input list="choices" id="example" name="example" />
+
+    <datalist id="choices">
+        <option value="Choice 1"></option>
+        <option value="Choice 2"></option>
+        <option value="Choice 3"></option>
+    </datalist>
+
+    <picture>
+        <source media="(min-width:1000px)" srcset="img_pink_flowers.jpg">
+        <source media="(min-width:600px)" srcset="img_white_flower.jpg">
+        <img src="img_orange_flowers.jpg" alt="Flowers" style="width:auto;">
+    </picture>
+
+    The <hr> HTML element represents a thematic break between paragraph-level elements: for example, a change of scene in a story, or a shift of topic within a section.
+
+    <p>§1: The first rule of Fight Club is: You do not talk about Fight Club.</p>
+    <hr>
+    <p>§2: The second rule of Fight Club is: Always bring cupcakes.</p>
+
+    <table>
+        <colgroup span="2" style="background-color: yellow">
+        <tr>
+          <th>Col 1</th>
+          <th>Col 2</th>
+          <th>Col 3</th>
+        </tr>
+        <tr>
+          <td>first</td>
+          <td>second</td>
+          <td>third</td>
+        </tr>
+    </table>
+
+    <table>
+        <caption>Superheros and sidekicks</caption>
+        <colgroup>
+            <col>
+            <col span="2" class="batman">
+            <col span="2" class="flash">
+        </colgroup>
+        <tr>
+            <td> </td>
+            <th scope="col">Batman</th>
+            <th scope="col">Robin</th>
+            <th scope="col">The Flash</th>
+            <th scope="col">Kid Flash</th>
+        </tr>
+        <tr>
+            <th scope="row">Skill</th>
+            <td>Smarts</td>
+            <td>Dex, acrobat</td>
+            <td>Super speed</td>
+            <td>Super speed</td>
+        </tr>
+    </table>
+
+    <a href="#">back to top</a>
+</body>
+
+</html>
