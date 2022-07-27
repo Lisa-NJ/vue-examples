@@ -14,3 +14,7 @@
 14. PNG, GIF, JPG -  these image formats can be displayed by all web browsers
 15. <base href="http://www.linkedin.com/dir/" />
 16. <wbr> - an opportunity for a break in a very long word, if needed for proper page display
+17. itemscope itemtype itemprop
+18. <label> - programmatically associates a text label with an interface element.
+19. _blank - get a link to open in a new window or tab
+20. 
