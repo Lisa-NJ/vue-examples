@@ -13,6 +13,12 @@
   <div id="app">
     <input type="text" v-model="searchInfo">
     <div v-if="showSearch">searching...</div>
+    <ol>
+      <li v-for="item in result">
+        {{item}}
+      </li>
+    </ol>
+
   </div>
   <script>
     new Vue({
@@ -20,13 +26,13 @@
       data: {
         searchInfo: "",
         showSearch: false,
-        result: []
+        result: ['js', 'css']
       },
       watch: {
-        searchInfo: function (query) {
+        searchInfo: function () {
           this.showSearch = true;
           setTimeout(() => {
-            this.result = ['js', 'css']
+            this.result = ['html']
             this.showSearch = false;
           }, 500)
         }
