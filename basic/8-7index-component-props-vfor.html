@@ -5,29 +5,26 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vue.component + props</title>
+  <title>Vue.component + props + v-bind</title>
   <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
 </head>
 
 <body>
   <div id="app1">
+  <!-- 
     <blog-post title="My journey with Vue"></blog-post>
     <blog-post title="Blogging with Vue"></blog-post>
-    <blog-post title="Why Vue is so fun"></blog-post>
-  </div>
-<!-- 
-  props: ['title', 'likes', 'isPublished', 'commentIds', 'author']
+    <blog-post title="Why Vue is so fun"></blog-post> 
+  -->
 
-  props: {
-    title: String,
-    likes: Number,
-    isPublished: Boolean,
-    commentIds: Array,
-    author: Object,
-    callback: Function,
-    contactsPromise: Promise // or any other constructor
-  }
- -->
+    <blog-post 
+      v-for="post in posts"   
+      v-bind:key="post.id"
+      v-bind:title="post.title"
+      >
+    </blog-post>
+  </div>
+  
   <script>
     // global component
     Vue.component('blog-post', {
@@ -37,6 +34,13 @@
 
     var app7 = new Vue({
       el: '#app1',
+      data: {
+        posts: [
+        { id: 1, title: 'My journey with Vue' },
+        { id: 2, title: 'Blogging with Vue' },
+        { id: 3, title: 'Why Vue is so fun' }
+      ]
+      } 
     })
   </script>
 </body>
