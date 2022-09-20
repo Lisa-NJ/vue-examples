@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>event modifier </title>
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+  <style>
+    * {
+      margin-top: 20px;
+    }
+    .demo1 {
+      height: 50px;
+      background-color: skyblue;
+    }
+    .box1 {
+      padding: 5px;
+      background-color: aquamarine;
+    }
+    .box2 {
+      padding: 5px;
+      background-color: orange;
+    }
+    .list {
+      width: 200px;
+      height: 200px;
+      background-color: aquamarine;
+      /* scroll */
+      overflow: auto; 
+    }
+    li {
+      height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- .stop .prevent .once -->
+  <div id="app">
+    <h2>Welcome to my school</h2>
+    <a href="http://www.atguigu.com" @click.prevent="showInfo">show information</a>
+    <div class="demo1" @click="showInfo">
+      <button @click.stop="showInfo">click</button>
+    </div>
+    <button @click.once="showInfo">click</button>
+
+    <!-- capture mode -->
+    <div class="box1" @click.capture="showMsg(1)">
+      div1
+      <div class="box2" @click="showMsg(2)">
+        div2
+      </div>
+    </div>
+
+    <!-- .self event is triggered only when event.target==self -->
+    <!-- In the following two cases, event.target = button -->>
+    <div class="demo1" @click.self="showInfo">         
+      <button @click="showInfo">click</button>
+    </div>
+
+    <!-- the default behavior happens immediately, no need to wait for call back to finish-->
+    <ul @wheel.passive="demo" class="list">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+    </ul>
+  </div>
+  <script type="text/javascript">
+    Vue.config.productionTip = false
+
+    new Vue({
+      el: "#app",
+      methods: { 
+      
+        showInfo() {
+          // this -- vm
+          // event -- the default parameter
+          alert("somthing");
+        },
+        showMsg(msg) {
+          console.log(msg);
+        },
+        demo() {
+          for (let index = 0; index < 10000; index++) {
+            console.log(index);
+          }
+        }
+      }
+    })
+    
+  </script>
+</body>
+
+</html>
