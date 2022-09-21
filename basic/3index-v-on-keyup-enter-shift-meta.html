@@ -22,6 +22,9 @@
     <button v-on:click.meta="showMeta">click with meta-command</button>
   </div>
   <script>
+    Vue.config.productionTip = false;
+    Vue.config.keyCodes.huiche =  13;  // define a alias of Enter
+
     new Vue({
       el: "#app",
       methods: { 
