@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>watch</title>
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <span>It is {{info}} today.</span>
+    <br>
+    <button @click="changeWeather">change</button>
+  </div>
+  <script>
+    Vue.config.productionTip = false
+    const vm = new Vue({
+      el: "#app",
+      data: {
+        isHot: false,
+        computed: {
+          info() {
+            return isHot ? 'hot' : 'cool'
+          }
+        }
+      },
+      methods: {
+        changeWeather() {
+          this.isHot = !this.isHot
+        }
+      },
+      // watch: {
+      //   isHot: {
+      //     immediate: true, // handler is called when it is run
+      //     handler() { // called when isHot changed
+      //       console.log('changed');
+      //     }
+      //   }
+      // }
+    })
+
+    // another way to watch
+    vm.$watch('isHot', {
+      immediate: true, // handler is called when it is run
+      handler() { // called when isHot changed
+        console.log('changed');
+      }
+    })
+
+  </script>
+</body>
+
+</html>

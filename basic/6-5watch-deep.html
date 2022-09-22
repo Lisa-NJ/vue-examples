@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>watch deep</title>
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="numbers.a++">change a</button>
+    <button @click="numbers.b++">change b</button>
+  </div>
+  <script>
+    Vue.config.productionTip = false
+    const vm = new Vue({
+      el: "#app",
+      data: {
+        isHot: false,
+        numbers: {
+          a: 1,
+          b: 1
+        }
+      },
+
+      watch: {
+        numbers: {
+          immediate: true, // handler is called when it is run
+          deep: true,  // to watch any changes to a or b
+          handler() { // called when isHot changed
+            console.log('a or b changed');
+          }
+        }
+      }
+    })
+
+  </script>
+</body>
+
+</html>
