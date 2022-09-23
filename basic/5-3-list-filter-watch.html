@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>list filter watch</title>
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h2>Staff List</h2>
+    <input type="text" placeholder="input name" v-model="searchName">
+    <ul>
+      <li v-for="person in filPersons">
+        {{person.name}}-{{person.title}}
+      </li>
+    </ul>
+  </div>
+  <script>
+    Vue.config.productionTip = false
+
+    new Vue({
+      el: "#app",
+      data: {
+        searchName: '',
+        persons: [{
+          id: "001",
+          name: "Lisa",
+          title: "react"
+        }, {
+          id: "002",
+          name: "Fiona",
+          title: "java"
+        }, {
+          id: "003",
+          name: "Jane",
+          title: "manager"
+        }],
+        filPersons: []
+      },
+      watch: {
+        searchName: {
+          immediate: true,
+          // 1st: val=''
+          handler(val) {
+            this.filPersons = this.persons.filter(p =>
+
+              p.name.indexOf(val) !== -1
+            )
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
