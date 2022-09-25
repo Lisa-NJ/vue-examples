@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>list behind</title>
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h2>Staff List</h2>
+    <button @click="changeLisaName">change Lisa's name</button>
+    <ul>
+      <li v-for="person in persons">
+        {{person.name}}-{{person.title}}
+      </li>
+    </ul>
+  </div>
+  <script>
+    Vue.config.productionTip = false
+
+    const vm = new Vue({
+      el: "#app",
+      data: {
+        persons: [{
+          id: "001",
+          name: "Lisa",
+          title: "react"
+        }, {
+          id: "002",
+          name: "Fiona",
+          title: "java"
+        }, {
+          id: "003",
+          name: "Jane",
+          title: "manager"
+        }]
+      },
+      methods: {
+        changeLisaName() {
+          //this.persons[0].name = 'Lily' // ok
+          this.persons[0] = {  // not ok
+            id: "001",
+            name: "Lily",
+            title: "react"
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
