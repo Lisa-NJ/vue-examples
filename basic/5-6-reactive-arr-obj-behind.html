@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>list what is behind reactive array and obj</title>
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+  <style>
+    button{
+      margin-top: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h2>Student Info</h2>
+    <button @click="student.age++">age+1</button> <br>
+    <button @click="addSex">add sex property = 'male'</button> <br>
+    <button @click="student.sex='unknown'">change sex property</button> <br>
+    <button @click="addFriend">add a friend</button> <br>
+    <button @click="addHobby">add a hobby</button> <br>
+    <button @click="updateHobby">update a hobby</button>
+    <h3>Name:{{student.name}}</h3>
+    <h3>Age:{{student.age}}</h3>
+    <!-- undefined - false -->
+    <h3 v-if="student.sex">Sex: {{student.sex}}</h3>
+    <h3>Hobbies:</h3>
+    <ul>
+      <li v-for="(h, index) in student.hobbies" :key="index">
+        {{h}}
+      </li>
+    </ul>
+    <h3>Friends:</h3>
+    <ul>
+      <li v-for="(f, index) in student.friends" :key="index">
+        {{f.name}}-{{f.title}}
+      </li>
+    </ul>
+  </div>
+  <script>
+    Vue.config.productionTip = false
+
+    const vm = new Vue({
+      el: "#app",
+      data: {
+        student : {
+          name: 'Tom',
+          age: 19,
+          hobbies: ['swimming', 'dancing', 'singing'],
+          friends: [{
+            id: "001",
+            name: "Lisa",
+            title: "react"
+          }, {
+            id: "002",
+            name: "Fiona",
+            title: "java"
+          }, {
+            id: "003",
+            name: "Jane",
+            title: "manager"
+          }]
+        }
+      
+      },
+      methods: {
+        addSex(sex) {
+          Vue.set(this.student, 'sex', 'male')
+        },
+        addFriend() {
+          this.student.friends.unshift({id:"000", name: "Jack", title: "pte"})
+        },
+        addHobby() {
+          this.student.hobbies.push('drawing')
+        },
+        updateHobby() {
+          //this.student.hobbies.splice(0, 1, 'movie')
+          Vue.set(this.student.hobbies, 0, 'driving')
+        }
+      }
+    }) 
+      
+  </script>
+</body>
+
+</html>
