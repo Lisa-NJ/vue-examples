@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>time formatter filter</title>
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+  <script src="../basic/js/dayjs.min.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h2>Fomatted time</h2>
+    <h3>It is:{{fmtTime}}</h3>
+    <h3>It is:{{getFormatTime()}}</h3>
+    <h3>{{time | timeFormatter}}</h3>
+  </div>
+  <script>
+    Vue.config.productionTip = false
+    new Vue({
+      el: "#app",
+      data: {
+        time: Date.now()
+      },
+      computed: {
+        fmtTime() {
+          return dayjs(this.time).format('YYYY-MM-DD HH:mm:ss')
+        }
+      },
+      methods: {
+        getFormatTime() {
+          return dayjs(this.time).format('YYYY-MM-DD HH:mm:ss')
+        }
+      },
+      filters: {
+        // default parameter
+        timeFormatter(t, str='YYYY-MM-DD') {
+          return dayjs(t).format(str)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
