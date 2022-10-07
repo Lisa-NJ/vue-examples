@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>directives - function</title>
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h2>current value is: <span v-text="n"></span></h2>
+    <h2>10 times value is: <span v-big="n"></span></h2>
+    <button @click="n++">+1</button>
+  </div>
+  <script>
+    Vue.config.productionTip = false
+    new Vue({
+      el: "#app",
+      data: {
+        n: 1
+      },
+      directives: {
+        // called when 1. first binding 2. template parsed again
+        big(element, binding) {
+          // console.log(element, binding)
+          element.innerText = binding.value * 10
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

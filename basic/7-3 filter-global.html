@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>global filter</title>
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{msg | upperCase(true)}}
+  </div>
+  <script>
+    Vue.config.productionTip = false
+    // global filter
+    Vue.filter('upperCase', function (val, isFirstFlg) {
+      strVal = val.toString()
+      return isFirstFlg ? strVal.charAt(0).toUpperCase() + strVal.slice(1)
+        : strVal.toUpperCase()
+    })
+
+    new Vue({
+      el: "#app",
+      data: {
+        msg: "just an example"
+      },
+      // local filter
+      // filters: {
+      //   upperCase: function (val, isFirstFlg) {
+      //     strVal = val.toString()
+      //     return isFirstFlg ? strVal.charAt(0).toUpperCase() + strVal.slice(1)
+      //       : strVal.toUpperCase()
+      //   }
+      // }
+
+    })
+  </script>
+</body>
+
+</html>
