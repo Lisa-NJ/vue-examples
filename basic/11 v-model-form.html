@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-model form</title>
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <form @submit.prevent="submit">
+      <label for="acc">Account: </label>
+      <input type="text" id="acc" v-model="account"> <br><br>
+      <label for="pass">Password: </label>
+      <input type="password" id="pass" v-model="password"> <br><br>
+      <label for="age">Age: </label>
+      <!-- type="number" limits input to number -->
+      <input type="number" id="age" v-model.number="age"> <br><br>
+      Sex: 
+      <label for="male">male</label>
+      <!-- same name means radios in a group -->
+      <!-- add value for v-model to bind -->
+      <input type="radio" id="male" name="sex" value="male" v-model="sex">  
+      <label for="female">female</label>
+      <input type="radio" id="female" name="sex" value="female" v-model="sex"> <br><br>
+      Hobbies:  
+      <label for="hob-stu">study</label>
+      <input type="checkbox" name="hobbies" id="hob-stu" value="hobbyStudy" v-model="hobby">
+      <label for="hob-mov">movie</label>
+      <input type="checkbox" name="hobbies" id="hob-mov" value="hobbyMovie" v-model="hobby">
+      <label for="hob-food">food</label>
+      <input type="checkbox" name="hobbies" id="hob-food" value="hobbyFood" v-model="hobby"> <br><br>
+      School: 
+      <select v-model="city">
+        <option value="">Select your branch</option>
+        <option value="ade">Adelaide</option>
+        <option value="mel">Melbourne</option>
+        <option value="syd">Sydney</option>
+      </select> <br><br>
+      Other: <textarea v-model="other"></textarea> <br><br>
+      <input type="checkbox" v-model="agree">Accept  
+      <a href="http://atguigu.com">conditions and terms</a> <br><br>
+      <button>Submit</button>
+    </form>
+  </div>
+  <script>
+    Vue.config.productionTip = false
+    new Vue({
+      el: "#app",
+      data: {
+        account: '',
+        password: '', 
+        age: 18,
+        sex: 'male',
+        hobby: [],
+        city: '',
+        other: '',
+        agree: ''
+      },
+      methods: {
+        submit() {
+          console.log(this.account, this.password, this.sex, this.hobby);
+          console.log(JSON.stringify(this._data));
+          // for a better practice, put all the properties in userInfo, then JSON.stringify(this.userInfo)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
