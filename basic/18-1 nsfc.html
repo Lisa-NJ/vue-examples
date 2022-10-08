@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NSFC</title>
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <hello></hello>
+    <school></school>
+  </div>
+  <script>
+    Vue.config.productionTip = false
+
+    const hello = Vue.extend({
+      template: `
+      <div>
+        <h2>hello!</h2>
+      </div>
+      `
+    })
+    const school = Vue.extend({
+      template: `
+      <div>
+        <h2>name:{{name}}</h2>
+        <h2>addr:{{addr}}</h2>
+      </div>
+      `,
+      data() {
+        return {
+          name: "Shang",
+          addr: "Beijing"
+        }
+      }
+    })
+
+    Vue.component('hello', hello)
+    new Vue({
+      el: "#app",
+      components: {
+        school
+      }
+    })
+  </script>
+</body>
+
+</html>
